@@ -3,8 +3,17 @@
     "displayName": "Markdown Toggle Task",
     "description": "Toggle tasks in Markdown like Obsidian",
     "version": "0.0.1",
+    "license": "MIT",
+    "publisher": "hatoo",
+    "author": {
+        "name": "hatoo"
+    },
     "engines": {
         "vscode": "^1.63.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mint149/markdownToggleTask"
     },
     "categories": [
         "Programming Languages", "Formatters", "Other"
