@@ -3,3 +3,4 @@ out/
 .DS_Store
 .eslintrc.json
 .vscodeignore
+markdown-toggle-task-0.0.1.vsix
