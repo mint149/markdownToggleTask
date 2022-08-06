@@ -2,7 +2,7 @@
     "name": "markdown-toggle-task",
     "displayName": "Markdown Toggle Task",
     "description": "Toggle tasks in Markdown like Obsidian",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "publisher": "hatoo",
     "author": {

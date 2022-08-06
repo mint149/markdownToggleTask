@@ -19,28 +19,31 @@ export function activate(context: vscode.ExtensionContext) {
 		editor?.edit(target => {
 			editor?.selections.forEach(selection => {
 				let cursorPos = selection.active;
-				if (cursorPos) {
-					let cursorLine = editor?.document.lineAt(cursorPos.line);
-					if (cursorLine) {
-						let startPos = new vscode.Position(cursorPos?.line, cursorLine?.firstNonWhitespaceCharacterIndex)
-						let firstPosEnd = new vscode.Position(startPos.line, startPos.character + 2);
-						let firstRange = new vscode.Range(startPos, firstPosEnd);
-						let firstStr = editor?.document.getText(firstRange);
-						let secondPosEnd = new vscode.Position(startPos.line, startPos.character + 6);
-						let secondRange = new vscode.Range(startPos, secondPosEnd);
-						let secondStr = editor?.document.getText(secondRange);
+				if (!cursorPos) {
+					return;
+				}
+				let cursorLine = editor?.document.lineAt(cursorPos.line);
+				if (!cursorLine) {
+					return;
+				}
+				let startPos = new vscode.Position(cursorPos?.line, cursorLine?.firstNonWhitespaceCharacterIndex)
+				let firstPosEnd = new vscode.Position(startPos.line, startPos.character + 2);
+				let firstRange = new vscode.Range(startPos, firstPosEnd);
+				let firstStr = editor?.document.getText(firstRange);
+				let secondPosEnd = new vscode.Position(startPos.line, startPos.character + 6);
+				let secondRange = new vscode.Range(startPos, secondPosEnd);
+				let secondStr = editor?.document.getText(secondRange);
 
-						if (firstStr != '- ') {
-							target.insert(startPos, '- ');
-						} else {
-							if (secondStr == '- [ ] ') {
-								target.replace(secondRange, '- [x] ');
-							} else if (secondStr == '- [x] ') {
-								target.replace(secondRange, '- [ ] ');
-							} else {
-								target.replace(firstRange, '- [ ] ');
-							}
-						}
+				// 開始からn文字取得→「- 」なら「[x]」なら…と分岐がいいかも
+				if (firstStr != '- ') {
+					target.insert(startPos, '- ');
+				} else {
+					if (secondStr == '- [ ] ') {
+						target.replace(secondRange, '- [x] ');
+					} else if (secondStr == '- [x] ') {
+						target.replace(secondRange, '- ');
+					} else {
+						target.replace(firstRange, '- [ ] ');
 					}
 				}
 			});
