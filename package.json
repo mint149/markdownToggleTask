@@ -2,7 +2,7 @@
     "name": "markdown-toggle-task",
     "displayName": "Markdown Toggle Task",
     "description": "Toggle tasks in Markdown like Obsidian",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
     "publisher": "hatoo",
     "author": {
@@ -16,25 +16,31 @@
         "url": "https://github.com/mint149/markdownToggleTask"
     },
     "categories": [
-        "Programming Languages", "Formatters", "Other"
+        "Programming Languages",
+        "Formatters",
+        "Other"
     ],
     "activationEvents": [
         "onCommand:markdownToggleTask.toggleTask"
     ],
     "main": "./out/extension.js",
     "contributes": {
-        "commands": [{
-            "command": "markdownToggleTask.toggleTask",
-            "title": "Toggle Task",
-            "category": "Markdown",
-            "shortTitle": "toggleTask"
-        }],
-        "keybindings": [{
-            "command": "markdownToggleTask.toggleTask",
-            "key": "Ctrl+Shift+enter",
-            "mac": "Cmd+Shift+enter",
-            "when": "editorTextFocus"
-        }]
+        "commands": [
+            {
+                "command": "markdownToggleTask.toggleTask",
+                "title": "Toggle Task",
+                "category": "Markdown",
+                "shortTitle": "toggleTask"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "markdownToggleTask.toggleTask",
+                "key": "Ctrl+Shift+enter",
+                "mac": "Cmd+Shift+enter",
+                "when": "editorTextFocus"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
