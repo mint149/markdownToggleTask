@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 					if (secondStr == '- [ ] ') {
 						target.replace(secondRange, '- [x] ');
 					} else if (secondStr == '- [x] ') {
-						target.replace(secondRange, '- ');
+						target.delete(secondRange);
 					} else {
 						target.replace(firstRange, '- [ ] ');
 					}

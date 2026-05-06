@@ -31,8 +31,8 @@
         }],
         "keybindings": [{
             "command": "markdownToggleTask.toggleTask",
-            "key": "Ctrl+enter",
-            "mac": "Cmd+enter",
+            "key": "Ctrl+Shift+enter",
+            "mac": "Cmd+Shift+enter",
             "when": "editorTextFocus"
         }]
     },
